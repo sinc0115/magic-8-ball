@@ -1,0 +1,62 @@
+// ADD ANIMATIONS
+
+// CHANGE SHIFT() TO SOMETHING THAT DOESN"T REMOVE STRINGS, make gameplay eternal
+
+// MAKE RESPONSIVE
+
+/**
+ * shuffle()
+ * Shuffle the contents of an array
+ *   depending the datatype of the source
+ * Makes a copy. Does NOT shuffle the original.
+ * Based on Steve Griffith's array shuffle prototype
+ * @Parameters: Array or string
+ * @Return: Scrambled Array or string, based on the provided parameter
+ */
+function shuffle (src) {
+    const copy = [...src]
+  
+    const length = copy.length
+    for (let i = 0; i < length; i++) {
+      const x = copy[i]
+      const y = Math.floor(Math.random() * length)
+      const z = copy[y]
+      copy[i] = z
+      copy[y] = x
+    }
+  
+    if (typeof src === 'string') {
+      return copy.join('')
+    }
+  
+    return copy
+  }
+
+// ANSWERS
+const answers = ['MAYBE', 'NEVER', 'POSSIBLY', 'DEFINITELY', 'SURE', 'NOPE', 'I GUESS?', 'TRY AGAIN', 'YES']
+
+const shuffledAnswers = shuffle(answers)
+
+// VUE APP
+const app = new Vue ({
+    el: '#app',
+    data: {
+        answers: shuffledAnswers,
+        answer: '',
+        question: ''
+    },
+    methods: {
+        clearInput: function () {
+            this.question = ''
+            event.target = ''
+        },
+        onEnter: function () {
+            this.clearInput()
+            var tempArray = shuffle(this.answers)
+            this.answer = tempArray[0]
+            return this.answer
+        }
+    }
+})
+
+console.log(shuffledAnswers)

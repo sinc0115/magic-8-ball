@@ -1,0 +1,41 @@
+[v-cloak] {display: none}
+
+.container {
+    background-color: aliceblue;
+    padding: 2rem;
+}
+
+.ball {
+    width: 60vw;
+    height: 60vw;
+    background-color: black;
+    border-radius: 100%;
+    margin: 3rem auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerBit {
+    width: 40vw;
+    height: 40vw;
+    background-color: white;
+    background-image: radial-gradient(#102542, #1d1d1d);
+    border-radius: 100%;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-submit {
+    background-color: #102542 !important;
+    color: white !important;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    margin: auto !important;
+    font-size: 2rem;
+}

@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!-- ANIMATE CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
         <title>Magic 8 Ball</title>
     </head>
     <body>
@@ -14,8 +16,17 @@
         <div id="app">
             <div class="eightBall">
                 <div class="ball">
-                    <div class="centerBit">
-                        <p v-cloak>{{ this.answer }}</p>
+                    <!-- <div v-if="gameStatus == false" class="bit eightBit">
+                        <p>8</p>
+                    </div>
+                    <div v-else class="bit centerBit">
+                        <p class="answerBit" v-cloak>{{ this.answer }}</p>
+                    </div> -->
+                    <div v-show="!gameStatus" class="bit eightBit">
+                        <p>8</p>
+                    </div>
+                    <div v-show="gameStatus" class="bit centerBit">
+                        <p class="answerBit" v-cloak>{{ this.answer }}</p>
                     </div>
                 </div>
             </div>

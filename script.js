@@ -37,21 +37,48 @@ const answers = ['MAYBE', 'NEVER', 'POSSIBLY', 'DEFINITELY', 'SURE', 'NOPE', 'I 
 
 const shuffledAnswers = shuffle(answers)
 
+
 // VUE APP
 const app = new Vue ({
     el: '#app',
     data: {
-        answers: shuffledAnswers,
-        answer: '',
-        question: ''
+      gameStatus: false,
+      answers: shuffledAnswers,
+      answer: '',
+      question: ''
     },
     methods: {
+        shakeAnimation: function () {
+          const eightBall = document.querySelector('.eightBall')
+          
+          eightBall.classList.add('animate__animated', 'animate__wobble', 'animate__fast')
+
+          eightBall.addEventListener('animationend', () => {
+            eightBall.className = 'eightBall'
+          })
+        },
+        fadeInAnimation: function () {
+            const answerBit = document.querySelector('.answerBit')
+
+            answerBit.classList.add('animate__animated', 'animate__fadeIn', 'animate__fast')
+
+            answerBit.addEventListener('animationend', () => {
+              answerBit.className = 'answerBit'
+            })
+        },
         clearInput: function () {
             this.question = ''
             event.target = ''
         },
         onEnter: function () {
+            if (this.question.length > 0) {
+              this.gameStatus = true
+            }
+
             this.clearInput()
+            this.shakeAnimation()
+            this.fadeInAnimation()
+
             var tempArray = shuffle(this.answers)
             this.answer = tempArray[0]
             return this.answer

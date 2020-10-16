@@ -1,9 +1,3 @@
-// ADD ANIMATIONS
-
-// CHANGE SHIFT() TO SOMETHING THAT DOESN"T REMOVE STRINGS, make gameplay eternal
-
-// MAKE RESPONSIVE
-
 /**
  * shuffle()
  * Shuffle the contents of an array
